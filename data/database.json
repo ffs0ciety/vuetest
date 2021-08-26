@@ -1,0 +1,76 @@
+{
+    "coaches":
+    [
+        {
+            "id": 0,
+            "name": "A",
+            "rating": 4.5,
+            "maxClients": 1,
+            "clients": []
+        },
+        {
+            "id": 1,
+            "name": "B",
+            "rating": 3.2,
+            "maxClients": 4,
+            "clients": []
+        },
+        {
+            "id": 2,
+            "name": "C",
+            "rating": 1.2,
+            "maxClients": 3,
+            "clients": []
+        },
+        {
+            "id": 3,
+            "name": "D",
+            "rating": 3.4,
+            "maxClients": 2,
+            "clients": []
+        }
+    ],
+    "clients":
+    [
+        {
+            "name":"q",
+            "rate":2.6
+        },
+        {
+            "name":"r",
+            "rate":3.7
+        },
+        {
+            "name":"s",
+            "rate":8.5
+        },
+        {
+            "name":"t",
+            "rate":9.7
+        },
+        {
+            "name":"u",
+            "rate":2.6
+        },
+        {
+            "name":"v",
+            "rate":4.7
+        },
+        {
+            "name":"w",
+            "rate":5.6
+        },
+        {
+            "name":"x",
+            "rate":3.7
+        },
+        {
+            "name":"y",
+            "rate":8.1
+        },
+        {
+            "name":"z",
+            "rate":2.5
+        }
+    ]
+}
