@@ -15,8 +15,11 @@ exports.linkClientsCoaches = (req, res) => {
     let unassignedClients = [];
 
     if(!checkData(coaches)){
+        let data = {
+            msg:'Puede ser que no hayas hecho caso al aviso del rango o que he programado algo mal :/ . Prueba intentarlo de nuevo,'
+        }
         res.status(400);
-        res.json("Bad request");
+        res.json({data});
     }
     else{
         Array.from(clients).map(client => {

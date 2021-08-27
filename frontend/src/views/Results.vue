@@ -16,6 +16,11 @@
                             <h2>PANTALLA DE RESULTADOS</h2>
                         </div>
                     </div>
+                       <div class="row">
+                            <div class="col">
+                                {{data}}
+                            </div>
+                        </div>
                     <div class="row justify-content-center">
                         <div class="col-auto" v-for="(coach, index) in data.coaches" :key="coach">
                             <!-- asdasd{{index}} -->
@@ -37,7 +42,7 @@
                             <h2>VALORACIÓN DEL CONJUNTO</h2>
                         </div>
                     </div>
-                    <div class="row text-left">
+                    <div v-if="data.unassignedClients.length > 0" class="row text-left">
                         <div class="col">
                             <h5>Los siguientes clientes no han podido ser asignados:</h5>
                             <div v-for="client in data.unassignedClients" :key="client">
@@ -119,7 +124,8 @@ export default {
             data: [],
             screenCoaches: true,
             results: [],
-            total: 0,                   
+            total: 0,     
+            msg: null             
         }
     },
     methods: {

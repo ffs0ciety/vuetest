@@ -25,7 +25,9 @@
                             <div class="col-6">Valoración</div>
                             <div class="col-6">
                                 <input type="number" v-model="data.coaches[index].rating" min="0" max="5" :placeholder='[coach.rating]'>
-                                <div class="range-alert" v-if="data.coaches[index].rating>5 || data.coaches[index].rating<0">La valoración debe de ser entre 0 y 5</div>
+                                <div class="range-alert" v-if="data.coaches[index].rating<0 || data.coaches[index].rating>5">
+                                    La valoración debe de ser entre 0 y 5
+                                </div>
                             </div>
                         </div>
 
@@ -50,8 +52,7 @@
                 </div>
                 <div class="col-auto">
                     <router-link :to="{name:'results'}"><button @click="saveData" class="btn btn-primary">Calcular resultados</button></router-link>
-                </div>
-                
+                </div>                
             </div>
 
             <div v-if="showModal">
@@ -109,12 +110,12 @@ export default {
         return {
             data: {coaches:[],clients:[]},
             showModal: false,
-            sandia: 'test123'
+            sandia: 'test123',
+            buttonDisable: false
         }
     },
     methods: {
         async getData(){
-            console.log("get");
             if(window.sessionStorage.getItem('rawData') != undefined){
                 this.data = JSON.parse(window.sessionStorage.getItem('rawData'));
             }
@@ -125,7 +126,7 @@ export default {
         },
         checkRating(){
             return true;
-        }
+        },
     },
     created() {
         this.getData();
