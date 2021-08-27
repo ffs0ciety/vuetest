@@ -18,7 +18,7 @@
                     </div>
                        <div class="row">
                             <div class="col">
-                                {{data}}
+                                {{data.data.msg}}
                             </div>
                         </div>
                     <div class="row justify-content-center">
