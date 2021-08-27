@@ -9,10 +9,7 @@ app.use(express.static(path.join(__dirname, './frontend/dist')));
 var indexRouter = require('./backend/routes/index');
 
 //Inicialización de la aplicación node
-app.listen(3000, () => {
- console.log("Server running on port 3000");
-});
-
+app.listen(process.env.PORT || 5000);
 
 //Redireccion a carpeta compilada con nuestro front
 app.use(express.static(path.join(__dirname, './frontend/dist')))
