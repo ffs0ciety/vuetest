@@ -9,13 +9,17 @@ app.use(express.static(path.join(__dirname, './frontend/dist')));
 var indexRouter = require('./backend/routes/index');
 
 //Inicialización de la aplicación node
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 5000 , () => {
+  console.log("Server running on port", process.env.PORT || 5000)
+})
+
+
 
 //Redireccion a carpeta compilada con nuestro front
-app.use(express.static(path.join(__dirname, './frontend/dist')))
+app.use(express.static(path.join(__dirname, 'frontend', 'dist')))
 app.use('/',indexRouter);
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/frontend/dist/index.html'))
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'))
 })
 
 

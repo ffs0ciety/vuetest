@@ -2,9 +2,8 @@
 
 async function apiRequest(type, path, params, mode, credentials){
     let exit;
-    let apiPath = 'http://localhost:3000';
     try {
-        await fetch(apiPath+path, {
+        await fetch(path, {
             method: type,
             headers: {
                 // 'Access-Control-Allow-Origin':'http://localhost:8080/',
