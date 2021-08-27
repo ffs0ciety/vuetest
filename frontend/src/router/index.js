@@ -14,6 +14,12 @@ const routes = [
       path : vueConfig.publicPath + 'results',
       name : "results",
       component : Results,
+      beforeEnter: async (to, from, next) => {
+        if(window.sessionStorage.getItem('rawData') == undefined){
+            next({ name: 'home'})
+        }
+        else next()
+      },
     }
 ]
 
