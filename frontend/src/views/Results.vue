@@ -4,7 +4,7 @@
             <div @click="screenCoaches=true" v-bind:class="{ active: screenCoaches }" class="col-auto tab">
                 Entrenadores
             </div>
-            <div @click="screenCoaches=false" v-bind:class="{ active: !screenCoaches }" class="col-auto tab right">
+            <div v-if="this.data.coaches != undefined"  @click="screenCoaches=false" v-bind:class="{ active: !screenCoaches }" class="col-auto tab right">
                 Valoración del conjunto
             </div>
         </div>
@@ -16,11 +16,16 @@
                             <h2>PANTALLA DE RESULTADOS</h2>
                         </div>
                     </div>
-                       <div class="row">
+                    <div v-if="this.data.coaches == undefined" class="row">
+                        <div class="col">
+                            Puede ser que no hayas hecho caso al aviso del rango o que he programado algo mal :/ . Prueba intentarlo de nuevo
+                        </div>
+                    </div>
+                       <!-- <div v-bind="data.data != null" class="row">
                             <div class="col">
                                 {{data.data.msg}}
                             </div>
-                        </div>
+                        </div> -->
                     <div class="row justify-content-center">
                         <div class="col-auto" v-for="(coach, index) in data.coaches" :key="coach">
                             <!-- asdasd{{index}} -->
@@ -70,21 +75,21 @@
                                     <div class="col-6">
                                         Total para este entrenador:
                                     </div>
-                                    <div class="partial-data col-6">{{results[index]}}</div>
+                                    <div class="partial-data col-6">{{formatNumber(results[index])}}</div>
                                 </div>
                             </div>
                             <div class="row align-items-center summatory">
                                 <div class="col-6">
                                     Sumatorio total de satisfacción:
                                 </div>
-                                <div class="col-6 summatory-data">{{total}}</div>
+                                <div class="col-6 summatory-data">{{formatNumber(total)}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="section row text-left">
                         <div class="col">
                             <h5>Explicación de la asignación</h5>
-                            <p>Para un conjunto de datos cerrado como el propuesto para la solución del ejercicio y entendemos que ese conjunto lo tendremos inicialmente completo para hacer las asignaciones, la solución más óptima y sencilla sería ordenar ambos conjuntos y asignar a cliente con mayor importancia - entrenador con mayor puntuación. A rasgos generales, consistiría en dar siempre el entrenador con mayor puntuación disponible a cada momento. Con esta solución nos aseguraríamos obtener la mayor puntuación de satisfacción total para la casuística explicada.</p>
+                            <p>Para un conjunto de datos cerrado como el propuesto para la solución del ejercicio y entendiendo que ese conjunto lo tendremos inicialmente completo para hacer las asignaciones. La solución óptima y sencilla sería ordenar ambos conjuntos y asignar a cliente con mayor importancia - entrenador con mayor puntuación. A rasgos generales, consistiría en dar siempre el entrenador con mayor puntuación disponible a cada momento. Con esta solución nos aseguraríamos obtener la mayor puntuación de satisfacción total para la casuística explicada.</p>
                             
                             <p>El problema viene cuando pensamos en el conjunto de datos como si fueran clientes que se han ido apuntando poco a poco; o simplemente que posteriormente tendremos la necesidad de añadir nuevos clientes al servicio. Con la solución explicada en el párrafo anterior, podría darse el caso de asignar inicialmente entrenadores con altas puntuaciones a clientes que no le dan importancia, provocando que clientes posteriores no puedan estar con entrenadores de puntuación demandada.</p>
 
@@ -132,6 +137,7 @@ export default {
         async getResults(){
             var _data = JSON.parse(window.sessionStorage.getItem('rawData'));
             this.data = await apiRequest('POST', '/api/linkclientscoaches', _data);
+            console.log(this.data.coaches);
             this.calculate(this.data);
         },
         calculate(data){
@@ -145,6 +151,9 @@ export default {
                 this.results[index] = result;
             })
         },
+        formatNumber(num){
+            return (Math.round(num * 100) / 100).toFixed(2);
+        }
         
     },
     created() {
