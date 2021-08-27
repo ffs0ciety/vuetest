@@ -4,7 +4,6 @@ var router = express();
 
 router.get('/data', getData);
 router.post('/linkclientscoaches', linkClientsCoaches);
-router.get('/test', test)
 
 
 module.exports = router;

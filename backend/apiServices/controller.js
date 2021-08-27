@@ -8,31 +8,33 @@ exports.getData = (req, res) => {
 exports.linkClientsCoaches = (req, res) => {
 
     //Con los clientes previamente ordenados obtenemos una configuración optima
-    let clients = Array.from(req.body.clients).sort(compareClientes);
+    let clients = Array.from(fileManager.getFile().clients).sort(compareClients);
     //Con los clientes en orden de llegada obtenemos una configuración no optima pero aceptable
     // let clients = req.body.clients;
     let coaches = req.body.coaches;
     let unassignedClients = [];
 
-    Array.from(clients).map(client => {
-        var closestCoach = closest(client.rate, coaches);
-        if(closestCoach != undefined ){
-            closestCoach.clients.push(client);
-        }
-        else{unassignedClients.push(client)}
-    })
-
-    let data = {
-        coaches: coaches,
-        unassignedClients: unassignedClients
+    if(!checkData(coaches)){
+        res.status(400);
+        res.json("Bad request");
     }
-    console.log(data);
-    res.json(data);
-}
-
-exports.test = (req,res) => {
+    else{
+        Array.from(clients).map(client => {
+            var closestCoach = closest(client.rate, coaches);
+            if(closestCoach != undefined ){
+                closestCoach.clients.push(client);
+            }
+            else{unassignedClients.push(client)}
+        })
     
-    res.json('keloke')
+        let data = {
+            coaches: coaches,
+            unassignedClients: unassignedClients
+        }
+        res.json(data);
+    }
+
+    
 }
 
 
@@ -40,12 +42,10 @@ exports.test = (req,res) => {
 function closest(rate, coaches){
     let closestCoach;
     //Primero ordenamos de mayor a menor los entrenadores, luego filtramos para quedarnos solamente con los que tienen huecos disponibles
-    // console.log("rate", rate/2);
     let coachesSorted = Array.from(coaches).sort(compareCoaches).filter(
             coach => coach.maxClients > coach.clients.length
         ).some(coach => {
             if(coach.rating < rate/2 && closestCoach != undefined){
-                // console.log("entra");
                 return true;
             }
             else{
@@ -53,12 +53,10 @@ function closest(rate, coaches){
                 return false;
             }
         })
-    return closestCoach;
-    
-    // console.log("closest", closestCoach)
+    return closestCoach;    
 }
 
-function compareClientes(a, b) {
+function compareClients(a, b) {
     let exit = 0;
     if (a.rate > b.rate) {
       exit = 1;
@@ -75,6 +73,15 @@ function compareCoaches(a, b) {
       exit = -1;
     }
     return exit*-1;
+  }
+
+  function checkData(coaches){
+    let ok = true;
+    
+    Array.from(coaches).map(coach => {
+        if(coach.rating < 0 || coach.rating > 5) ok = false;
+    })
+    return ok;
   }
 
 
