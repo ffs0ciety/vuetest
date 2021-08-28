@@ -33,17 +33,17 @@ Se ha utilizado como sandbox Heroku y se puede vistar la página en -> https://d
 El código consta de los archivos de los archivos de configuración en la carpeta raiz junto con el archivo principal de la aplicación app.js
 
 En la carpeta /frontend podemos encontrar todo el codigo relativo a la aplicación desarrolada en VUE 3
-    - Esta carpeta consta a su vez con todos los archivos necesarios para continuar el desarrollo sin depender del nuestro back o archivos principales de la carpeta raíz. Es posible trabajar con ella en otro entorno ya que contiene su propio package.json.
-    - En su carpeta /dist se encuentra el codigo compilado para llevar a producción en Node, es la carpeta a la que accede nuestra aplicación principal para obtener los archivos que se van a enviar como vistas.
-    - La carpeta /public es la carpeta que contiene el .html principal desarrolando en vue
-    - /src contiene todos los archivos con los que se construye la aplicación.
-      - Archivos principales de la aplicación y carpetas descritas por su propio nombre
+ - Esta carpeta consta a su vez con todos los archivos necesarios para continuar el desarrollo sin depender del nuestro back o archivos principales de la carpeta raíz. Es posible trabajar con ella en otro entorno ya que contiene su propio package.json.
+ - En su carpeta /dist se encuentra el codigo compilado para llevar a producción en Node, es la carpeta a la que accede nuestra aplicación principal para obtener los archivos que se van a enviar como vistas.
+ - La carpeta /public es la carpeta que contiene el .html principal desarrolando en vue
+ - /src contiene todos los archivos con los que se construye la aplicación.
+  - Archivos principales de la aplicación y carpetas descritas por su propio nombre
 
 Dentro de /backend la aplicación se ha separado en:
-    -apiServices: Tradicionalmente la carpeta iría separada por servicios separados, pero al tener solo uno, encontramos directamente tanto el controlladro del servicio como su archivo de rutas.
-    -data: El archivo database.json actúa como base de datos de nuestra aplicación, se puede cambiar el json por otro equivalente conservando el mismo nombre. Para que la aplicación trabajar con otros Entrenadores por defecto o otros clientes solo habría que añadirlos.
-    -microservices: Servicios generales de la aplicación como el acceso a base de datos.
-    -routes: Contiene el archivo index.js que se encarga del manejo de rutas general, ahora mismo solo contiene hacia la ruta /api
+ - apiServices: Tradicionalmente la carpeta iría separada por servicios separados, pero al tener solo uno, encontramos directamente tanto el controlladro del servicio como su archivo de rutas.
+ - data: El archivo database.json actúa como base de datos de nuestra aplicación, se puede cambiar el json por otro equivalente conservando el mismo nombre. Para que la aplicación trabajar con otros Entrenadores por defecto o otros clientes solo habría que añadirlos.
+ - microservices: Servicios generales de la aplicación como el acceso a base de datos.
+ - routes: Contiene el archivo index.js que se encarga del manejo de rutas general, ahora mismo solo contiene hacia la ruta /api
 
 
 ### ¿Cómo pongo en marcha la aplicación? ###

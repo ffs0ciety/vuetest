@@ -89,7 +89,7 @@
                     <div class="section row text-left">
                         <div class="col">
                             <h5>Explicación de la asignación</h5>
-                            <p>Para un conjunto de datos cerrado como el propuesto para la solución del ejercicio y entendiendo que ese conjunto lo tendremos inicialmente completo para hacer las asignaciones. La solución óptima y sencilla sería ordenar ambos conjuntos y asignar a cliente con mayor importancia - entrenador con mayor puntuación. A rasgos generales, consistiría en dar siempre el entrenador con mayor puntuación disponible a cada momento. Con esta solución nos aseguraríamos obtener la mayor puntuación de satisfacción total para la casuística explicada.</p>
+                            <p>Para un conjunto de datos cerrado como el propuesto para la solución del ejercicio y entendiendo que ese conjunto lo tendremos inicialmente completo para hacer las asignaciones, la solución óptima y sencilla sería ordenar ambos conjuntos y asignar a cliente con mayor importancia - entrenador con mayor puntuación. A rasgos generales, consistiría en dar siempre el entrenador con mayor puntuación disponible a cada momento. Con esta solución nos aseguraríamos obtener la mayor puntuación de satisfacción total para la casuística explicada.</p>
                             
                             <p>El problema viene cuando pensamos en el conjunto de datos como si fueran clientes que se han ido apuntando poco a poco; o simplemente que posteriormente tendremos la necesidad de añadir nuevos clientes al servicio. Con la solución explicada en el párrafo anterior, podría darse el caso de asignar inicialmente entrenadores con altas puntuaciones a clientes que no le dan importancia, provocando que clientes posteriores no puedan estar con entrenadores de puntuación demandada.</p>
 
@@ -97,7 +97,7 @@
 
                             <p>Con esta resolución del problema encontramos una forma sencilla de asignar a los clientes con algo cercano a lo que estan buscando pero superior. Esta asignación se produce siempre y cuando haya huecos disponibles en entrenadores con puntuaciones superiores, en caso contrario se le asignará el primer hueco disponible más alto.</p>
 
-                            <p>Para determinadas situaciones la solución estará lejos de ser optima, por ejemplo, cuando quedan pocos huecos disponibles, es posible que a una persona que valore mucho un entrenador con alta puntuación se le asigne un entrenador con valoración 1 porque es el único hueco disponible.</p>
+                            <p>Para determinadas situaciones la solución estará lejos de ser óptima, por ejemplo, cuando quedan pocos huecos disponibles, es posible que a una persona que valore mucho un entrenador con alta puntuación se le asigne un entrenador con valoración 1 porque es el único hueco disponible.</p>
 
                             <p>La solución del problema es mejorable utilizando modelos matemáticos como modelos de asignación o modelos predictivos en el caso de poder ir creando un historial de datos.</p>
                             
