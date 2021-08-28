@@ -7,6 +7,6 @@ exports.getFile = _data => {
 
 exports.addData = _data => {
     var file = require(path);
-    return "jejej";
+    return file;
 }
 
