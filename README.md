@@ -1,4 +1,4 @@
-# Prueba técnica para DudyFit
+# Prueba técnica
 
 ## Configuración del proyecto
 ```
@@ -24,7 +24,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Información de Github y Heroku ###
 
-El respositorio dónde se encuentra el código actualizado es -> https://github.com/ffs0ciety/dudyfit
+El respositorio dónde se encuentra el código actualizado es -> https://github.com/ffs0ciety/vuetest
 
 Se ha utilizado como sandbox Heroku y se puede vistar la página en -> https://dudy-fit.herokuapp.com/
 
