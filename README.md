@@ -26,7 +26,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 El respositorio dónde se encuentra el código actualizado es -> https://github.com/ffs0ciety/vuetest
 
-Se ha utilizado como sandbox Heroku y se puede vistar la página en -> https://dudy-fit.herokuapp.com/
+Se ha utilizado como sandbox Heroku y se puede vistar la página en -> https://vuetest-rms7.herokuapp.com/
 
 ### Descripción de los archivos y directorios ###
 
