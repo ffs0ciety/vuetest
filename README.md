@@ -48,7 +48,7 @@ Dentro de /backend la aplicación se ha separado en:
 
 ### ¿Cómo pongo en marcha la aplicación? ###
 
-Una vez descargado los archivos, lanzaremos el comando **npm run install**, el cual instalará las dependecias dentro de la carpeta node_modules. Tras esto podremos ejecutar el comando **npm run start** para lanzar el servidor en local. En el caso de que querramos editar la parte del front, deberemos ejecutar **npm run build** dentro de la carpeta /frontend para que se compilen los archivos que va a leer la aplicación de Node.
+Una vez descargado los archivos, lanzaremos el comando **npm install**, el cual instalará las dependecias dentro de la carpeta node_modules. Tras esto podremos ejecutar el comando **npm run start** para lanzar el servidor en local. En el caso de que querramos editar la parte del front, deberemos ejecutar **npm run build** dentro de la carpeta /frontend para que se compilen los archivos que va a leer la aplicación de Node.
 
 ### Datos e información de que usa la aplicación ###
 
